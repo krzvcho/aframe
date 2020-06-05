@@ -1,0 +1,51 @@
+<a-scene>
+  <a-assets>
+    <img
+      id="backgroundInsideHouse"
+      crossorigin="anonymous"
+      src="https://cdn.eso.org/images/publicationjpg/vlt-mw-potw-cc-extended.jpg"
+    />
+    <a-assets>
+      <video
+        id="video"
+        autoplay
+        loop="true"
+        src="/assets/mp4/coverr-training-with-mountain-landscape-1585726970130.mp4"
+      ></video>
+    </a-assets>
+
+    <a-asset-item
+      id="shelf-obj"
+      src="/assets/obj/shelf-metal.obj"
+    ></a-asset-item>
+    <a-asset-item
+      id="shelf-mtl"
+      src="/assets/obj/shelf-metal.mtl"
+    ></a-asset-item>
+
+    <a-asset-item id="books-obj" src="/assets/obj/books.obj"></a-asset-item>
+    <a-asset-item id="books-mtl" src="/assets/obj/books.mtl"></a-asset-item>
+  </a-assets>
+
+  <a-sky id="background" src="#backgroundInsideHouse"></a-sky>
+
+  <a-entity
+    *ngFor="let box of someData"
+    obj-model="obj: #books-obj; mtl: #books-mtl"
+    [attr.position]="box.position"
+    [attr.link]="box.link"
+  ></a-entity>
+  <a-video src="#video" width="16" height="9" position="0 5 -8"></a-video>
+
+  <a-plane
+    position="0 0.39 -7"
+    rotation="-75 0 0"
+    width="10"
+    height="5"
+    color="#888"
+  ></a-plane>
+
+  <a-camera>
+    <a-cursor></a-cursor>
+  </a-camera>
+</a-scene>
